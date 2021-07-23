@@ -32,8 +32,43 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+
+    /**
+     * This method is called when Numbers Text List is called
+     * @param view
+     */
     public void openNumbersList(View view){
         Intent i = new Intent(this, NumbersActivity.class);
+        startActivity(i);
+    }
+
+
+    /**
+     * This method is called when Family Members Text List is called
+     * @param view
+     */
+    public void openFamilyList(View view){
+        Intent i = new Intent(this, FamilyActivity.class);
+        startActivity(i);
+    }
+
+
+    /**
+     *This method is called when Colors Text List is called
+     * @param view
+     */
+    public void openColorsList(View view){
+        Intent i = new Intent(this, ColorsActivity.class);
+        startActivity(i);
+    }
+
+
+    /**
+     * This method is called when Phrases Text List is called
+     * @param view
+     */
+    public void openPhrasesList(View view){
+        Intent i = new Intent(this, PhrasesActivity.class);
         startActivity(i);
     }
 
