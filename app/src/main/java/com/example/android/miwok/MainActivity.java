@@ -19,6 +19,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -31,6 +32,23 @@ public class MainActivity extends AppCompatActivity {
         // Set the content of the activity to use the activity_main.xml layout file
         setTitle(R.string.app_name);
         setContentView(R.layout.activity_main);
+
+
+        //FInd a view that shows numbers Category
+        TextView numbers = (TextView) findViewById(R.id.numbers);
+
+        //Set a clickListener on that view
+        numbers.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //Create a new intent to open the {@Link NumberActivity}
+                Intent numbersIntent =  new Intent(MainActivity.this,NumbersActivity.class);
+
+                //Start a new Activity
+                startActivity(numbersIntent);
+            }
+        });
     }
 
 
