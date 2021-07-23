@@ -15,6 +15,7 @@
  */
 package com.example.android.miwok;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -33,14 +34,16 @@ public class MainActivity extends AppCompatActivity {
         setTitle(R.string.app_name);
         setContentView(R.layout.activity_main);
 
-
+/********************************************************
+ * NumbersActivity OnClickListener
+ ********************************************************/
         //FInd a view that shows numbers Category
         TextView numbers = (TextView) findViewById(R.id.numbers);
 
         //Set a clickListener on that view
         numbers.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
 
                 //Create a new intent to open the {@Link NumberActivity}
                 Intent numbersIntent =  new Intent(MainActivity.this,NumbersActivity.class);
@@ -49,47 +52,109 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(numbersIntent);
             }
         });
+
+
+        /********************************************************
+         * FamilyActivity OnClickListener
+         ********************************************************/
+        //FInd a view that shows numbers Category
+        TextView family = (TextView) findViewById(R.id.family);
+
+        //Set a clickListener on that view
+        family.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Create a new intent to open the {@Link NumberActivity}
+                Intent familyIntent =  new Intent(MainActivity.this,FamilyActivity.class);
+
+                //Start a new Activity
+                startActivity(familyIntent);
+            }
+        });
+
+
+
+        /********************************************************
+         * ColorsActivity OnClickListener
+         ********************************************************/
+        //FInd a view that shows numbers Category
+        TextView colors = (TextView) findViewById(R.id.colors);
+
+        //Set a clickListener on that view
+        colors.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Create a new intent to open the {@Link NumberActivity}
+                Intent colorsIntent =  new Intent(MainActivity.this,ColorsActivity.class);
+
+                //Start a new Activity
+                startActivity(colorsIntent);
+            }
+        });
+
+
+
+        /********************************************************
+         * PhrasesActivity OnClickListener
+         ********************************************************/
+        //FInd a view that shows numbers Category
+        TextView phrases = (TextView) findViewById(R.id.phrases);
+
+        //Set a clickListener on that view
+        phrases.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                //Create a new intent to open the {@Link NumberActivity}
+                Intent phrasesIntent =  new Intent(MainActivity.this,PhrasesActivity.class);
+
+                //Start a new Activity
+                startActivity(phrasesIntent);
+            }
+        });
     }
 
 
-    /**
-     * This method is called when Numbers Text List is called
-     * @param view
-     */
-    public void openNumbersList(View view){
-        Intent i = new Intent(this, NumbersActivity.class);
-        startActivity(i);
-    }
-
-
-    /**
-     * This method is called when Family Members Text List is called
-     * @param view
-     */
-    public void openFamilyList(View view){
-        Intent i = new Intent(this, FamilyActivity.class);
-        startActivity(i);
-    }
-
-
-    /**
-     *This method is called when Colors Text List is called
-     * @param view
-     */
-    public void openColorsList(View view){
-        Intent i = new Intent(this, ColorsActivity.class);
-        startActivity(i);
-    }
-
-
-    /**
-     * This method is called when Phrases Text List is called
-     * @param view
-     */
-    public void openPhrasesList(View view){
-        Intent i = new Intent(this, PhrasesActivity.class);
-        startActivity(i);
-    }
+//    /**
+//     * This method is called when Numbers Text List is called
+//     * @param view
+//     */
+//    public void openNumbersList(View view){
+//        Intent i = new Intent(this, NumbersActivity.class);
+//        startActivity(i);
+//    }
+//
+//
+//    /**
+//     * This method is called when Family Members Text List is called
+//     * @param view
+//     */
+//    public void openFamilyList(View view){
+//        Intent i = new Intent(this, FamilyActivity.class);
+//        startActivity(i);
+//    }
+//
+//
+//    /**
+//     *This method is called when Colors Text List is called
+//     * @param view
+//     */
+//    public void openColorsList(View view){
+//        Intent i = new Intent(this, ColorsActivity.class);
+//        startActivity(i);
+//    }
+//
+//
+//    /**
+//     * This method is called when Phrases Text List is called
+//     * @param view
+//     */
+//    public void openPhrasesList(View view){
+//        Intent i = new Intent(this, PhrasesActivity.class);
+//        startActivity(i);
+//    }
 
 }
 
