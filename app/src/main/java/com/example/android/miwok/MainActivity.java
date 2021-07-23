@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         // Set the content of the activity to use the activity_main.xml layout file
+        setTitle(R.string.app_name);
         setContentView(R.layout.activity_main);
     }
 
