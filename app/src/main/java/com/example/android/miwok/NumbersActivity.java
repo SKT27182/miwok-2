@@ -25,31 +25,34 @@ public class NumbersActivity extends AppCompatActivity {
 
 
         //This is an ArrayList
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("One");
-        words.add("Two");
-        words.add("Three");
-        words.add("Four");
-        words.add("Five");
-        words.add("Six");
-        words.add("Seven");
-        words.add("Eight");
-        words.add("Nine");
-        words.add("Ten");
-        words.add("Eleven");
-        words.add("Twelve");
-        words.add("Thirteen");
-        words.add("Fourteen");
-        words.add("Fifteen");
-        words.add("Sixteen");
-        words.add("Seventeen");
-        words.add("Eighteen");
-        words.add("Nineteen");
-        words.add("Twenty");
-        words.add("TwentyOne");
-        words.add("TwentyTwo");
-        words.add("TwentyThree");
-        words.add("TwentyFour");
+        ArrayList<Word> words = new ArrayList<Word>();
+
+        /**
+         * Word w = new Word("ONE","UNO");
+         * words/add(w);
+         */
+        words.add(new Word("ONE","UNO"));
+        words.add(new Word("TWO","DOS"));
+        words.add(new Word("THREE","TRES"));
+        words.add(new Word("FOUR","CUATRO"));
+        words.add(new Word("FIVE","CINCO"));
+        words.add(new Word("SIX","SEIS"));
+        words.add(new Word("SEVEN","SIETE"));
+        words.add(new Word("EIGHT","OCHO"));
+        words.add(new Word("NINE","NUEVE"));
+        words.add(new Word("TEN","DIEZ"));
+        words.add(new Word("ELEVEN","ONCE"));
+        words.add(new Word("TWELVE","DOCE"));
+        words.add(new Word("THIRTEEN","TRECE"));
+        words.add(new Word("FOURTEEN","CATORCE"));
+        words.add(new Word("FIFTEEN","QUINCE"));
+        words.add(new Word("SIXTEEN","DIECISÉIS"));
+        words.add(new Word("SEVENTEEN","DE DIECISIETE"));
+        words.add(new Word("EIGHTEEN","DIECIOCHO"));
+        words.add(new Word("NINETEEN","DIECINUEVE"));
+        words.add(new Word("TWENTY","VEINTE"));
+        words.add(new Word("TWENTY ONE","VEINTIUNO"));
+        words.add(new Word("TWENTY TWO","VEINTIDÓS"));
 
 
 
@@ -58,7 +61,7 @@ public class NumbersActivity extends AppCompatActivity {
         // simple_list_item_1.xml layout resource defined in the Android framework.
         // This list item layout contains a single {@link TextView}, which the adapter will set to
         // display a single word.
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, R.layout.list_item, words);
 
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
