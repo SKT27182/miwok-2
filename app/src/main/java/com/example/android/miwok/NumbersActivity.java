@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
+import android.widget.GridView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -35,6 +36,20 @@ public class NumbersActivity extends AppCompatActivity {
         words.add("Eight");
         words.add("Nine");
         words.add("Ten");
+        words.add("Eleven");
+        words.add("Twelve");
+        words.add("Thirteen");
+        words.add("Fourteen");
+        words.add("Fifteen");
+        words.add("Sixteen");
+        words.add("Seventeen");
+        words.add("Eighteen");
+        words.add("Nineteen");
+        words.add("Twenty");
+        words.add("TwentyOne");
+        words.add("TwentyTwo");
+        words.add("TwentyThree");
+        words.add("TwentyFour");
 
 
 
@@ -48,7 +63,7 @@ public class NumbersActivity extends AppCompatActivity {
         // Find the {@link ListView} object in the view hierarchy of the {@link Activity}.
         // There should be a {@link ListView} with the view ID called list, which is declared in the
         // activity_numbers.xml layout file.
-        ListView listView = (ListView) findViewById(R.id.list);
+        GridView listView = (GridView) findViewById(R.id.list);
 
         // Make the {@link ListView} use the {@link ArrayAdapter} we created above, so that the
         // {@link ListView} will display list items for each word in the list of words.
