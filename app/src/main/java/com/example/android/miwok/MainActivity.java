@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
         setTitle(R.string.app_name);
         setContentView(R.layout.activity_main);
 
-/********************************************************
- * NumbersActivity OnClickListener
- ********************************************************/
+        /********************************************************
+        * NumbersActivity OnClickListener
+        ********************************************************/
         //FInd a view that shows numbers Category
         TextView numbers = (TextView) findViewById(R.id.numbers);
 
