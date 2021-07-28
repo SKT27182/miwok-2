@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 
@@ -19,12 +20,15 @@ import static com.example.android.miwok.Word.NO_IMAGE_PROVIDED;
 public class WordAdapter extends ArrayAdapter<Word> {
 
 
+    //Resource id for the background color of the list TextView
+    private int mColorResourceId;
 
-    public WordAdapter(Activity context, ArrayList<Word> words) {
+    public WordAdapter(Activity context, ArrayList<Word> words , int colorResourceId) {
 
         // pass the context and arrayList for the super
         // constructor of the ArrayAdapter class
         super(context, 0, words);
+        mColorResourceId = colorResourceId;
     }
 
     @NonNull
@@ -64,6 +68,13 @@ public class WordAdapter extends ArrayAdapter<Word> {
         }else{
             defaultImageView.setVisibility(View.GONE);
         }
+
+        // Set the theme color for the list item
+        View textContainer = listItemView.findViewById(R.id.text_container);
+        // Find the color that the resource ID maps to
+        int color = ContextCompat.getColor(getContext(), mColorResourceId);
+        //Set the background color for the textContainer View
+        textContainer.setBackgroundColor(color);
 
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)

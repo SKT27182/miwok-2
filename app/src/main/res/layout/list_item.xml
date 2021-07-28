@@ -20,8 +20,8 @@
         android:orientation="vertical"
         android:paddingLeft="16dp"
         android:gravity="center"
-        android:background="@color/category_numbers"
         android:textSize="18sp"
+        android:id="@+id/text_container"
         >
 
         <TextView
