@@ -22,8 +22,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
     //Resource id for the background color of the list TextView
     private int mColorResourceId;
+    private int mAudioResourceId;
 
-    public WordAdapter(Activity context, ArrayList<Word> words , int colorResourceId) {
+    public WordAdapter(Activity context, ArrayList<Word> words , int colorResourceId  ) {
 
         // pass the context and arrayList for the super
         // constructor of the ArrayAdapter class
@@ -75,6 +76,9 @@ public class WordAdapter extends ArrayAdapter<Word> {
         int color = ContextCompat.getColor(getContext(), mColorResourceId);
         //Set the background color for the textContainer View
         textContainer.setBackgroundColor(color);
+
+
+
 
 
         // Return the whole list item layout (containing 2 TextViews and an ImageView)

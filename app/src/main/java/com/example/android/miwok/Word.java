@@ -15,23 +15,31 @@ public class Word {
         mImageResourceId = NO_IMAGE_PROVIDED;
     }
 
+    //Variable to store the position of the audio file
+    private Integer mAudioResourceId;
+
 
     //making a constant variable with initializing it to -1 which checks whether image is provided or not
     public static final int NO_IMAGE_PROVIDED = -1;
 
 
     //Constructor
-    public Word(String defaultTranslation, String miwokTranslation){
+    public Word(String defaultTranslation, String miwokTranslation, int audioResourceId){
         mMiwokTranslation = miwokTranslation;
         mDefaultTranslation = defaultTranslation;
+        mAudioResourceId = audioResourceId;
     }
 
     // New Constructor with Image Resourcce ID
-    public Word(String defaultTranslation, String miwokTranslation,int imageResourceId){
+    public Word(String defaultTranslation, String miwokTranslation,int imageResourceId , int audioResourceId){
         mMiwokTranslation = miwokTranslation;
         mDefaultTranslation = defaultTranslation;
         mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
+
     }
+
+
 
 
     /**
@@ -60,6 +68,11 @@ public class Word {
     public boolean HasImage(){
         return mImageResourceId != NO_IMAGE_PROVIDED;
     }
+
+
+
+    //Returns the audioResourceID
+    public int getAudioResourceId(){return mAudioResourceId;}
 
 
 
