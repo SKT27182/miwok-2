@@ -31,28 +31,20 @@ public class NumbersActivity extends AppCompatActivity {
          * Word w = new Word("ONE","UNO");
          * words/add(w);
          */
-        words.add(new Word("ONE","UNO"));
-        words.add(new Word("TWO","DOS"));
-        words.add(new Word("THREE","TRES"));
-        words.add(new Word("FOUR","CUATRO"));
-        words.add(new Word("FIVE","CINCO"));
-        words.add(new Word("SIX","SEIS"));
-        words.add(new Word("SEVEN","SIETE"));
-        words.add(new Word("EIGHT","OCHO"));
-        words.add(new Word("NINE","NUEVE"));
-        words.add(new Word("TEN","DIEZ"));
-        words.add(new Word("ELEVEN","ONCE"));
-        words.add(new Word("TWELVE","DOCE"));
-        words.add(new Word("THIRTEEN","TRECE"));
-        words.add(new Word("FOURTEEN","CATORCE"));
-        words.add(new Word("FIFTEEN","QUINCE"));
-        words.add(new Word("SIXTEEN","DIECISÉIS"));
-        words.add(new Word("SEVENTEEN","DE DIECISIETE"));
-        words.add(new Word("EIGHTEEN","DIECIOCHO"));
-        words.add(new Word("NINETEEN","DIECINUEVE"));
-        words.add(new Word("TWENTY","VEINTE"));
-        words.add(new Word("TWENTY ONE","VEINTIUNO"));
-        words.add(new Word("TWENTY TWO","VEINTIDÓS"));
+
+        words.add(new Word("one","lutt",  R.drawable.number_one));
+        words.add(new Word("two","otiiko ", R.drawable.number_two));
+        words.add(new Word("three","tolookosu",R.drawable.number_three));
+        words.add(new Word("four","oyyisa", R.drawable.number_four));
+        words.add(new Word("five","massokka", R.drawable.number_five));
+        words.add(new Word("six","temmokka",R.drawable.number_six));
+        words.add(new Word("seven","kenekaku", R.drawable.number_seven));
+        words.add(new Word("eight","kawinta", R.drawable.number_eight));
+        words.add(new Word("nine","wo’e",R.drawable.number_nine));
+        words.add(new Word("ten","na’aacha", R.drawable.number_ten));
+
+
+
 
 
 
