@@ -18,6 +18,13 @@ import java.util.ArrayList;
 
 public class NumbersActivity extends AppCompatActivity {
 
+    //releases the memory as soon as we switch to another app
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
 
     private MediaPlayer mMediaPlayer;
 

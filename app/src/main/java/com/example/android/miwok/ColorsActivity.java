@@ -12,6 +12,13 @@ import java.util.ArrayList;
 
 public class ColorsActivity extends AppCompatActivity {
 
+    //releases the memory as soon as we switch to another app
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
+
     private MediaPlayer mMediaPlayer;
 
     //Checks whether the Media is completed or not if completed then run the onCompletion

@@ -2,6 +2,8 @@ package com.example.android.miwok;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -11,6 +13,13 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
+
+    //releases the memory as soon as we switch to another app
+    @Override
+    protected void onStop() {
+        super.onStop();
+        releaseMediaPlayer();
+    }
 
     private MediaPlayer mMediaPlayer;
 
@@ -30,10 +39,9 @@ public class PhrasesActivity extends AppCompatActivity {
         setTitle(R.string.category_phrases);
         setContentView(R.layout.activity_numbers);
 
+
 //        This is the Array
 //        String [] words = new String[]{"One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Ten"};
-
-
         //This is an ArrayList
         final ArrayList<Word> words = new ArrayList<Word>();
 
@@ -43,8 +51,8 @@ public class PhrasesActivity extends AppCompatActivity {
          */
 
 
-        words.add(new Word("Where are you going?", "minto wuksus", R.raw.phrase_where_are_you_going));
-        words.add(new Word("What is your name?", "tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
+        words.add(new Word("Where are you going?", "minto wuksus", R.raw.song));
+        words.add(new Word("What is your name?", "tinnә oyaase'nә", R.raw.song));
         words.add(new Word("My name is..", "oyaaset...", R.raw.phrase_my_name_is));
         words.add(new Word("How are you feeling?", "michәksәs?", R.raw.phrase_how_are_you_feeling));
         words.add(new Word("I’m feeling good", "kuchi achit ", R.raw.phrase_im_feeling_good));
@@ -90,6 +98,9 @@ public class PhrasesActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 
     /**
      * Clean up the media player by releasing its resources.
