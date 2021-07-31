@@ -14,6 +14,25 @@ import java.util.ArrayList;
 
 public class PhrasesActivity extends AppCompatActivity {
 
+    private AudioManager mAudioManager;
+
+    AudioManager.OnAudioFocusChangeListener mOnAudioFocusChangeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            if (focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK){
+                //pause playback
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+            }else if (focusChange == AudioManager.AUDIOFOCUS_GAIN){
+                //Resume playback
+                mMediaPlayer.start();
+            }else if (focusChange == AudioManager.AUDIOFOCUS_LOSS){
+                // Stop Playing and release MediaPlayer;
+                releaseMediaPlayer();
+            }
+        }
+    };
+
     //releases the memory as soon as we switch to another app
     @Override
     protected void onStop() {
@@ -27,7 +46,7 @@ public class PhrasesActivity extends AppCompatActivity {
     //This listener gets trigger when Media Player has completed playing audio
     private MediaPlayer.OnCompletionListener mCompletionListener = new MediaPlayer.OnCompletionListener() {
         @Override
-        public void onCompletion(MediaPlayer mp) {
+        public void onCompletion(MediaPlayer mMediaPlayer) {
             releaseMediaPlayer();
         }
     };
@@ -38,6 +57,9 @@ public class PhrasesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setTitle(R.string.category_phrases);
         setContentView(R.layout.activity_numbers);
+
+
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
 
 //        This is the Array
@@ -51,8 +73,8 @@ public class PhrasesActivity extends AppCompatActivity {
          */
 
 
-        words.add(new Word("Where are you going?", "minto wuksus", R.raw.song));
-        words.add(new Word("What is your name?", "tinnә oyaase'nә", R.raw.song));
+        words.add(new Word("Where are you going?", "minto wuksus", R.raw.phrase_where_are_you_going));
+        words.add(new Word("What is your name?", "tinnә oyaase'nә", R.raw.phrase_what_is_your_name));
         words.add(new Word("My name is..", "oyaaset...", R.raw.phrase_my_name_is));
         words.add(new Word("How are you feeling?", "michәksәs?", R.raw.phrase_how_are_you_feeling));
         words.add(new Word("I’m feeling good", "kuchi achit ", R.raw.phrase_im_feeling_good));
@@ -81,6 +103,8 @@ public class PhrasesActivity extends AppCompatActivity {
         // 1 argument, which is the {@link ArrayAdapter} with the variable name itemsAdapter.
         listView.setAdapter(adapter);
 
+
+        //Creating a OnItemClickListener
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -89,11 +113,15 @@ public class PhrasesActivity extends AppCompatActivity {
                 //Releases the memory as the new word is clicked
                 releaseMediaPlayer();
 
-                mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceId());
-                mMediaPlayer.start();
+                int result = mAudioManager.requestAudioFocus(mOnAudioFocusChangeListener, AudioManager.STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
 
-                //Setup a listener on the Media Player , so that we can stop and release the memory
-                mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                if (result== AudioManager.AUDIOFOCUS_REQUEST_GRANTED){
+                    mMediaPlayer = MediaPlayer.create(PhrasesActivity.this, word.getAudioResourceId());
+                    mMediaPlayer.start();
+
+                    //Setup a listener on the Media Player , so that we can stop and release the memory
+                    mMediaPlayer.setOnCompletionListener(mCompletionListener);
+                }
 
             }
         });
@@ -116,6 +144,9 @@ public class PhrasesActivity extends AppCompatActivity {
             // setting the media player to null is an easy way to tell that the media player
             // is not configured to play an audio file at the moment.
             mMediaPlayer = null;
+
+            //Abandon audio focus when playback is complete
+            mAudioManager.abandonAudioFocus(mOnAudioFocusChangeListener);
         }
     }
 }
